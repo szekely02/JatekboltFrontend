@@ -1,0 +1,102 @@
+# Build artifacts
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userprefs
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# IIS Express
+/.vs/*
+
+# Publish output
+publish/
+
+# Logs
+*.log
+
+# Web site files
+*.vsix
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper*
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Generated static web assets
+**/staticwebassets.build.*
+**/staticwebassets.development.json
+**/staticwebassets.runtime.json
+
+# Backup & temporary files
+*~
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# DotCover
+*.dotCover
+
+# Coverage results
+coverage*/
+*.coverage
+*.coveragexml
+*.lcov
+
+# Database files
+*.mdf
+*.ldf
+
+# Packages
+*.nupkg
+*.snupkg
+
+# Composer / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mint
+*.xcuserstate
+
+# End of file
