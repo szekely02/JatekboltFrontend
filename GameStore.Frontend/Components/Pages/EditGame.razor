@@ -1,106 +1,128 @@
 ﻿@page "/editgame"
 @page "/editgame/{Id:int}"
+
 @rendermode InteractiveServer
-@inject NavigationManager NavigationManager
-@inject GamesClient GamesClient
-@inject GenresClient GenresClient
+
 @using GameStore.Frontend.Models
 @using GameStore.Frontend.Clients
 
-<PageTitle>@title</PageTitle> 
+@inject NavigationManager NavigationManager
+@inject TermekekClient TermekekClient
+
+<PageTitle>@title</PageTitle>
 <h3>@title</h3>
- @if (genres is  null || game is null)
+@if (termek is null)
 {
-      <p><em>Loading...</em></p>
+    <p><em>Betöltés...</em></p>
 }
 else
-{      
+{
     <div class="row">
-    <div class="col-md-4">
-    <EditForm Model="@game" FormName="editGame" OnValidSubmit="HandleSubmitAsync" Enhance>
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <InputText id="name" class="form-control" @bind-Value="game.Name" />
-        <ValidationMessage For="() => game.Name" />
-    </div> 
-    <div class="mb-3">
-        <label for="genre" class="form-label">Genre:</label>
-        <InputSelect id="genre" class="form-select" @bind-Value="game.GenreId" >
-            <option value="">-- Select Genre --</option>       
-                @foreach (var genre in genres)
-                {
-                    <option value="@genre.Id">@genre.Name</option>
-                }        
-        </InputSelect>
-        <ValidationMessage For="() => game.GenreId" />
-    </div>  
-    <div class="mb-3">
-        <label for="price" class="form-label">Price:</label>
-        <InputNumber id="price" class="form-control" @bind-Value="game.Price" />
-        <ValidationMessage For="() => game.Price" />
-    </div>  
-    <div class="mb-3">
-        <label for="releaseDate" class="form-label">Release Date:</label>
-        <InputDate id="releaseDate" class="form-control" @bind-Value="game.ReleaseDate" />
-    </div> 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a role="button" class="btn btn-secondary" href="/">Cancel</a>  
-</EditForm>
-</div>
-</div>
+        <div class="col-md-4">
+            <EditForm Model="@termek" FormName="editGame" OnValidSubmit="HandleSubmitAsync" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <div class="mb-3">
+                    <label for="name" class="form-label">Cim:</label>
+                    <InputText id="name" class="form-control" @bind-Value="termek.Cim" />
+                    <ValidationMessage For="() => termek.Cim" />
+                </div>
+                <div class="mb-3">
+                    <label for="leiras" class="form-label">Leiras:</label>
+                    <InputText id="leiras" class="form-control" @bind-Value="termek.leiras" />
+                    <ValidationMessage For="() => termek.leiras" />
+                </div>
+                <div class="mb-3">
+                    <label for="korhatarBesorolas" class="form-label">Korhatar besorolas:</label>
+                    <InputText id="korhatarBesorolas" class="form-control" @bind-Value="termek.korhatar_besorolas" />
+                    <ValidationMessage For="() => termek.korhatar_besorolas" />
+                </div>
+                <div class="mb-3">
+                    <label for="platform" class="form-label">Platform:</label>
+                    <InputText id="platform" class="form-control" @bind-Value="termek.Platform" />
+                    <ValidationMessage For="() => termek.Platform" />
+                </div>
+                <div class="mb-3">
+                    <label for="kiado" class="form-label">Kiado:</label>
+                    <InputText id="kiado" class="form-control" @bind-Value="termek.Kiado" />
+                    <ValidationMessage For="() => termek.Kiado" />
+                </div>
+                <div class="mb-3">
+                    <label for="releaseDate" class="form-label">Release Date:</label>
+                    <InputDate id="releaseDate" class="form-control" @bind-Value="termek.megjelenesi_datum" />
+                </div>
+                <div class="mb-3">
+                    <label for="mufaj" class="form-label">Mufaj:</label>
+                    <InputText id="mufaj" class="form-control" @bind-Value="termek.Mufaj" />
+                    <ValidationMessage For="() => termek.Mufaj" />
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <InputNumber id="price" class="form-control" @bind-Value="termek.ar" />
+                    <ValidationMessage For="() => termek.ar" />
+                </div>
+                <div class="mb-3">
+                    <label for="akciosAr" class="form-label">Akcios ar:</label>
+                    <InputNumber id="akciosAr" class="form-control" @bind-Value="termek.akcios_ar" />
+                    <ValidationMessage For="() => termek.akcios_ar" />
+                </div>
+                <div class="mb-3">
+                    <label for="raktarKeszlet" class="form-label">raktarkeszlet:</label>
+                    <InputNumber id="raktarKeszlet" class="form-control" @bind-Value="termek.Raktarkeszlet" />
+                    <ValidationMessage For="() => termek.Raktarkeszlet" />
+                </div>
+                <button type="submit" class="btn btn-primary">Mentés</button>
+                <a role="button" class="btn btn-secondary" href="/termekek">Mégse</a>
+            </EditForm>
+        </div>
+    </div>
 }
 
 @code {
     [Parameter]
     public int? Id { get; set; }
     [SupplyParameterFromForm]
-    private GameDetails? game { get; set; }
-    private Genre[]? genres;
+    private TermekekSummary? termek { get; set; }
+    
     private string title = string.Empty;
 
     protected override async Task OnParametersSetAsync()
     {
-        if (game is not null)
+        if (termek is not null)
         {
             return;
         }
 
         if (Id is not null)
         {
-            game = await GamesClient.GetGameAsync(Id.Value);
-            title = $"Edit {game.Name}";
+            termek = await TermekekClient.GettermekAsync(Id.Value);
+            title = $" {termek.Cim} Szerkeztése.";
         }
         else
         {
-            game = new()
+            termek = new()
             {
-                Name = string.Empty,
-                ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+                Cim = string.Empty,
+                megjelenesi_datum = DateTime.UtcNow
             };
-            title = "New Game";
+            title = "új játék létrehozása";
         }
-    }
-    protected override async Task OnInitializedAsync() 
-    {
-        genres = await GenresClient.GetGenresAsync();
     }
 
     private async Task HandleSubmitAsync()
     {
-        ArgumentNullException.ThrowIfNull(game);
+        ArgumentNullException.ThrowIfNull(termek);
 
         if (Id is null)
         {
-            await GamesClient.AddGameAsync(game);           
+            await TermekekClient.AddtermekAsync(termek);
         }
-        else    
+        else
         {
-            game.Id = Id.Value;
-            await GamesClient.UpdateGameAsync(game);
+            termek.Jatek_ID = Id.Value;
+            await TermekekClient.UpdatetermekAsync(termek);
         }
         
-        NavigationManager.NavigateTo("/");
-    }   
+        NavigationManager.NavigateTo("/termekek");
+    }
 }

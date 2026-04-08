@@ -1,0 +1,100 @@
+@page "/editvasarlo"
+@page "/editvasarlo/{Id:int}"
+
+@rendermode InteractiveServer
+
+@using GameStore.Frontend.Models
+@using GameStore.Frontend.Clients
+
+@inject NavigationManager NavigationManager
+@inject VasarlokClient VasarlokClient
+
+<PageTitle>@title</PageTitle>
+<h3>@title</h3>
+@if (Vasarlo is null)
+{
+    <p><em>Betöltés...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm Model="@Vasarlo" FormName="editVasarlo" OnValidSubmit="HandleSubmitAsync" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <div class="mb-3">
+                    <label for="nev" class="form-label">Név:</label>
+                    <InputText id="nev" class="form-control" @bind-Value="Vasarlo.Nev" />
+                    <ValidationMessage For="() => Vasarlo.Nev" />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <InputText id="email" class="form-control" @bind-Value="Vasarlo.Email" />
+                    <ValidationMessage For="() => Vasarlo.Email" />
+                </div>
+                <div class="mb-3">
+                    <label for="telefonszam" class="form-label">Telefonszám:</label>
+                    <InputText id="telefonszam" class="form-control" @bind-Value="Vasarlo.telefonszam" />
+                    <ValidationMessage For="() => Vasarlo.telefonszam" />
+                </div>
+                <div class="mb-3">
+                    <label for="szallitasi-cim" class="form-label">Szállítási cím:</label>
+                    <InputText id="szallitasi-cim" class="form-control" @bind-Value="Vasarlo.szallitasi_cim" />
+                    <ValidationMessage For="() => Vasarlo.szallitasi_cim" />
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a role="button" class="btn btn-secondary" href="/vasarlok">Cancel</a>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+    [SupplyParameterFromForm]
+    private VasarlokSummary? Vasarlo { get; set; }
+    
+    private string title = string.Empty;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Vasarlo is not null)
+        {
+            return;
+        }
+
+        if (Id is not null)
+        {
+            Vasarlo = await VasarlokClient.GetVasarloAsync(Id.Value);
+            title = $"Vásárló {Vasarlo.Nev} szerkesztése";
+        }
+        else
+        {
+            Vasarlo = new()
+            {
+                Nev = string.Empty,
+            };
+            title = "Új vásárló";
+        }
+    }
+
+    private async Task HandleSubmitAsync()
+    {
+        ArgumentNullException.ThrowIfNull(Vasarlo);
+
+        if (Id is null)
+        {
+            await VasarlokClient.AddVasarloAsync(Vasarlo);
+        }
+        else
+        {
+            Vasarlo.Vasarlo_ID = Id.Value;
+            await VasarlokClient.UpdateVasarloAsync(Vasarlo);
+        }
+        
+        NavigationManager.NavigateTo("/vasarlok");
+    }
+}
+

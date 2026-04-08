@@ -1,15 +1,38 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace GameStore.Frontend.Models;
 
-public class Termekeksummary
+public class TermekekSummary
 {
+    public int Jatek_ID { get; set; }
+
+    [Required]
     public string Cim { get; set; }
+
+    [Required]
     public string Platform { get; set; }
+
+    [Required]
     public string Kiado { get; set; }
+
+    [Required]
     public string Mufaj { get; set; }
-    public DateTime Megjelenesi_datum { get; set; }
-    public string Korhatar_besorolas { get; set; }
-    public int Leiras { get; set; }
-    public decimal Ar { get; set; }
-    public decimal Akcios_ar { get; set; }
+
+    [Required]
+    public DateTime megjelenesi_datum { get; set; }
+
+    [Required]
+    public string korhatar_besorolas { get; set; }
+
+    [Required]
+    [MinLength(5)]
+    public string leiras { get; set; }
+
+    [Required]
+    public int ar { get; set; }
+
+    public int akcios_ar { get; set; }
+
+    [Required]
     public int Raktarkeszlet { get; set; }
 }

@@ -4,7 +4,7 @@ using GameStore.Frontend.Converters;
 
 namespace GameStore.Frontend.Models;
 
-public class GameDetails
+public class TermekekDetails
 {
     public int Jatek_ID { get; set; }
     public string Cim { get; set; }

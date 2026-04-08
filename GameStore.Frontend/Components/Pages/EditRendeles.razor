@@ -1,0 +1,159 @@
+@page "/editrendeles"
+@page "/editrendeles/{Id:int}"
+@attribute [StreamRendering]
+
+@rendermode InteractiveServer
+
+@using GameStore.Frontend.Models
+@using GameStore.Frontend.Clients
+
+@inject NavigationManager NavigationManager
+
+@inject RendelesekClient RendelesekClient
+@inject VasarlokClient VasarlokClient
+@inject TermekekClient TermekekClient
+
+<PageTitle>@title</PageTitle>
+<h3>@title</h3>
+@if (rendeles is null || vasarlok is null || termekek is null)
+{
+  <p><em>Betöltés...</em></p>
+}
+else
+{
+  <div class="row">
+    <div class="col-md-4">
+      <EditForm Model="@rendeles" FormName="editRendeles" OnValidSubmit="HandleSubmitAsync" Enhance>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="mb-3">
+          <label for="vasarlo" class="form-label">Vasarlo:</label>
+          <InputSelect id="vasarlo" class="form-select" @bind-Value="rendeles.Vasarlo_ID">
+            <option value="">-- Válassz egy vásárlót --</option>
+            @foreach (var vasarlo in vasarlok)
+            {
+              <option value="@vasarlo.Vasarlo_ID">@vasarlo.Nev</option>
+            }
+          </InputSelect>
+          <ValidationMessage For="() => rendeles.Vasarlo_ID" />
+        </div>
+        <div class="mb-3">
+          <label for="termek" class="form-label">Termek:</label>
+          <InputSelect id="termek" class="form-select" @bind-Value="rendeles.termek_ID">
+            <option value="">-- Válassz egy terméket --</option>
+            @foreach (var termek in termekek)
+            {
+              <option value="@termek.Jatek_ID">@termek.Cim</option>
+            }
+          </InputSelect>
+          <ValidationMessage For="() => rendeles.termek_ID" />
+        </div>
+
+        <!-- 
+         <div class="mb-3">
+          <label for="darabszam" class="form-label">Darabszam:</label>
+          <InputNumber id="darabszam" class="form-control" @bind-Value="rendeles.daranszam" />
+          <ValidationMessage For="() => vasarlo.darabszam" />
+        </div>
+       -->
+
+        <div class="mb-3">
+          <label for="rendeles-datum" class="form-label">Rendelés dátuma:</label>
+          <InputDate id="rendeles-datum" @bind-Value="rendeles.Rendeles_datuma" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label for="fizetesi-mod" class="form-label">Fizetési mód:</label>
+          <InputSelect id="fizetesi-mod" class="form-select" @bind-Value="rendeles.fizetesi_mod">
+            <option value="">-- Válassz egy Fizetési módot --</option>
+            <option value="keszpenz">Készpénz</option>
+            <option value="kartya">Kártya</option>
+            <option value="utalas">Utalás</option>
+          </InputSelect>
+          <ValidationMessage For="() => rendeles.fizetesi_mod" />
+        </div>
+        
+        <div class="mb-3">
+          <label for="szallitasi-mod" class="form-label">Szállítási mód:</label>
+          <InputSelect id="szallitasi-mod" class="form-select" @bind-Value="rendeles.szallitasi_mod">
+            <option value="">-- Válassz egy Szállítási módot --</option>
+            <option value="hazhozszallitas">Házhozszállítás</option>
+            <option value="aruhazi-atvetel">Áruházi átvétel</option>
+          </InputSelect>
+          <ValidationMessage For="() => rendeles.szallitasi_mod" />
+        </div>
+               
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a role="button" class="btn btn-secondary" href="/rendelesek">Cancel</a>
+      </EditForm>
+    </div>
+  </div>
+}
+
+@code {
+  [Parameter]
+  public int? Id { get; set; }
+  
+  [SupplyParameterFromQuery]
+  public int? TermekId { get; set; }
+  
+  [SupplyParameterFromForm]
+  private RendelesekSummary? rendeles { get; set; }
+  private VasarlokSummary[]? vasarlok { get; set; }
+  private TermekekSummary[]? termekek { get; set; }
+    
+  private string title = string.Empty;
+  
+  protected override async Task OnInitializedAsync()
+  {
+    termekek = await TermekekClient.GetTermekekAsync();
+    vasarlok = await VasarlokClient.GetVasarlokAsync();
+  }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    if (rendeles is not null)
+    {
+      return;
+    }
+
+    if (Id is not null)
+    {
+      rendeles = await RendelesekClient.GetrendelesAsync(Id.Value);
+      title = $"Rendelés \"{rendeles.Rendelesek_ID}\" szerkesztése";
+    }
+    else
+    {
+      rendeles = new()
+      {
+        Rendelesek_ID = 0,
+        Vasarlo_ID = 0,
+        termek_ID = TermekId ?? 0,
+        Rendeles_datuma = DateTime.Now,
+        // darabszam
+        fizetesi_mod = string.Empty,
+        szallitasi_mod = string.Empty
+      };
+      
+      title = "Új rendelés létrehozása";
+    }
+  }
+
+  private async Task HandleSubmitAsync()
+  {
+    ArgumentNullException.ThrowIfNull(rendeles);
+
+    if (Id is null)
+    {
+      var result = await RendelesekClient.AddrendelesAsync(rendeles);
+    }
+    else
+    {
+      rendeles.Rendelesek_ID = Id.Value;
+      await RendelesekClient.UpdaterendelesAsync(rendeles);
+    }
+        
+    NavigationManager.NavigateTo("/rendelesek");
+  }
+}
+

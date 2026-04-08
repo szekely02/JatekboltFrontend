@@ -8,15 +8,15 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 var gameStoreApiUrl = builder.Configuration["GameStoreApiUrl"] ?? 
     throw new InvalidOperationException("GameStoreApiUrl configuration is missing.");
     
-builder.Services.AddHttpClient<GamesClient>(
+builder.Services.AddHttpClient<TermekekClient>(
     client => client.BaseAddress = new Uri(gameStoreApiUrl)
 );
-builder.Services.AddHttpClient<GenresClient>(
+builder.Services.AddHttpClient<VasarlokClient>(
     client => client.BaseAddress = new Uri(gameStoreApiUrl)
 );
-
-builder.Services.AddSingleton<GamesClient>();
-builder.Services.AddSingleton<GenresClient>();
+builder.Services.AddHttpClient<RendelesekClient>(
+    client => client.BaseAddress = new Uri(gameStoreApiUrl)
+);
 
 var app = builder.Build();
 
@@ -34,4 +34,5 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
-app.Run() ;
+app.Run();
+

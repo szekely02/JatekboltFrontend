@@ -1,9 +1,9 @@
-﻿@inject TermekekClient Client
+@inject VasarlokClient Client
 @inject NavigationManager NavigationManager
 @rendermode InteractiveServer
 
 
-<div class="modal fade" id="@GetModalId(Termek)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="@GetModalId(Vasarlo)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,24 +20,24 @@
 
 @code {
   [Parameter]
-  public TermekekSummary? Termek { get; set; }
+  public VasarlokSummary? Vasarlo { get; set; }
 
   private string title = string.Empty;
 
   protected override void OnParametersSet()
   {
-    title = $"Biztos törli a  \"{Termek?.Cim}\" játékot?";
+    title = $"Biztos törli a \"{Vasarlo?.Nev}\" vásárlót?";
        
   }
-  public static string GetModalId(TermekekSummary? termek)
+  public static string GetModalId(VasarlokSummary? vasarlo)
   {
-    ArgumentNullException.ThrowIfNull(termek);
-    return $"deleteModal-{termek.Jatek_ID}";
+    ArgumentNullException.ThrowIfNull(vasarlo);
+    return $"deleteModal-{vasarlo.Vasarlo_ID}";
   }
 
   private async Task ConfirmAsync()
   {
-    await Client.DeletetermekAsync(Termek!.Jatek_ID);
+    await Client.DeleteVasarloAsync(Vasarlo!.Vasarlo_ID);
     NavigationManager.Refresh();
   }
 }

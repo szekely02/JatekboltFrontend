@@ -1,0 +1,89 @@
+@page "/termekek"
+
+@using GameStore.Frontend.Clients
+@using GameStore.Frontend.Models
+
+@inject TermekekClient Client
+
+@attribute [StreamRendering]
+
+<PageTitle>Játék katalógus</PageTitle>
+
+<div class="mt-2">
+  <a class="btn btn-primary" role="button" href="/editgame">Új játék</a>
+</div>
+
+@if (termekek is null)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+  <table class="table table-striped table-bordered table-hover mt-3">
+    <thead class="table-dark">
+      <th>Id</th>
+      <th>Cím</th>
+      <th>Platform</th>
+      <th>Kiadó</th>
+      <th>Műfaj</th>
+      <th>megjelenési dátum</th>
+      <th>Korhatár</th>
+      <th>Leírás</th>
+      <th class="text-end">Ár</th>
+      <th>Akciós ár</th>
+      <th>Raktarkészlet</th>
+      <th></th>
+    </thead>
+    <tbody>
+      @foreach (var termek in termekek)
+      {
+        <tr>
+          <td>@termek.Jatek_ID</td>
+          <td>@termek.Cim</td>
+          <td>@termek.Platform</td>
+          <td>@termek.Kiado</td>
+          <td>@termek.Mufaj</td>
+          <td>@termek.megjelenesi_datum.ToShortDateString()</td>
+          <td>@termek.korhatar_besorolas</td>
+          <td>@termek.leiras</td>
+          <td class="text-end">@termek.ar.ToString("C2")</td>
+          <td class="text-end">@termek.akcios_ar.ToString("C2")</td>
+          <td class="text-end">@termek.Raktarkeszlet</td>
+          
+          <td>
+            <div class="d-flex flex-nowrap">
+              <a class="btn btn-primary me-2" role="button" href="@GameUrl(termek.Jatek_ID)">
+                <i class="bi bi-pencil"></i>
+              </a>
+              <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="@GetDeleteModalId(termek)">
+                <i class="bi bi-x-lg"></i>
+              </button>
+              <a class="btn btn-success" role="button" href="@RendelesUrl(termek.Jatek_ID)">
+                <i class="bi bi-cart-plus"></i>
+              </a>
+            </div>
+            <DeleteGame Termek="@termek" />
+          </td>
+
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+@code {
+  private TermekekSummary[]? termekek;
+  protected override async Task OnInitializedAsync()
+  {
+    termekek = await Client.GetTermekekAsync();
+  }
+
+  private static string GameUrl(int id) => $"/editgame/{id}";
+  
+  private static string RendelesUrl(int id) => $"/editrendeles?termekId={id}";  
+
+  private string GetDeleteModalId(TermekekSummary termek)
+  {
+    return $"#{DeleteGame.GetModalId(termek)}";
+  }
+}

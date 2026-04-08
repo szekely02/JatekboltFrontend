@@ -1,5 +1,34 @@
-﻿<nav class="navbar bg-body-tertiary" data-bs-theme="dark">
-  <div class="container">
-    <span class="navbar-brand mb-0 h1">Game Store</span>
+﻿@inject NavigationManager NavigationManager
+
+<nav class="navbar navbar-expand-md bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Game Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link @(IsActive("/") ? "active" : "")" aria-current="page" href="/">Főmenü</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @(IsActive("/termekek") ? "active" : "")" aria-current="page" href="/termekek">Termékek</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @(IsActive("/vasarlok") ? "active" : "")" aria-current="page" href="/vasarlok">Vásárlók</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @(IsActive("/rendelesek") ? "active" : "")" aria-current="page"
+             href="/rendelesek">Rendelések</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
+
+@code {
+  private bool IsActive(string href)
+  {
+    return NavigationManager.Uri.EndsWith(href);
+  }
+}
