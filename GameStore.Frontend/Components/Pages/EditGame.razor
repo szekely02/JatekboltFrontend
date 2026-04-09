@@ -23,17 +23,17 @@ else
                 <DataAnnotationsValidator />
                 <ValidationSummary />
                 <div class="mb-3">
-                    <label for="name" class="form-label">Cim:</label>
+                    <label for="name" class="form-label">Cím:</label>
                     <InputText id="name" class="form-control" @bind-Value="termek.Cim" />
                     <ValidationMessage For="() => termek.Cim" />
                 </div>
                 <div class="mb-3">
-                    <label for="leiras" class="form-label">Leiras:</label>
+                    <label for="leiras" class="form-label">Leírás:</label>
                     <InputText id="leiras" class="form-control" @bind-Value="termek.leiras" />
                     <ValidationMessage For="() => termek.leiras" />
                 </div>
                 <div class="mb-3">
-                    <label for="korhatarBesorolas" class="form-label">Korhatar besorolas:</label>
+                    <label for="korhatarBesorolas" class="form-label">Korhatár besorolás:</label>
                     <InputText id="korhatarBesorolas" class="form-control" @bind-Value="termek.korhatar_besorolas" />
                     <ValidationMessage For="() => termek.korhatar_besorolas" />
                 </div>
@@ -43,31 +43,31 @@ else
                     <ValidationMessage For="() => termek.Platform" />
                 </div>
                 <div class="mb-3">
-                    <label for="kiado" class="form-label">Kiado:</label>
+                    <label for="kiado" class="form-label">Kiadó:</label>
                     <InputText id="kiado" class="form-control" @bind-Value="termek.Kiado" />
                     <ValidationMessage For="() => termek.Kiado" />
                 </div>
                 <div class="mb-3">
-                    <label for="releaseDate" class="form-label">Release Date:</label>
+                    <label for="releaseDate" class="form-label">Megjelenési dátum:</label>
                     <InputDate id="releaseDate" class="form-control" @bind-Value="termek.megjelenesi_datum" />
                 </div>
                 <div class="mb-3">
-                    <label for="mufaj" class="form-label">Mufaj:</label>
+                    <label for="mufaj" class="form-label">Műfaj:</label>
                     <InputText id="mufaj" class="form-control" @bind-Value="termek.Mufaj" />
                     <ValidationMessage For="() => termek.Mufaj" />
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Price:</label>
+                    <label for="price" class="form-label">Ár:</label>
                     <InputNumber id="price" class="form-control" @bind-Value="termek.ar" />
                     <ValidationMessage For="() => termek.ar" />
                 </div>
                 <div class="mb-3">
-                    <label for="akciosAr" class="form-label">Akcios ar:</label>
+                    <label for="akciosAr" class="form-label">Akciós Ár:</label>
                     <InputNumber id="akciosAr" class="form-control" @bind-Value="termek.akcios_ar" />
                     <ValidationMessage For="() => termek.akcios_ar" />
                 </div>
                 <div class="mb-3">
-                    <label for="raktarKeszlet" class="form-label">raktarkeszlet:</label>
+                    <label for="raktarKeszlet" class="form-label">raktárkészlet:</label>
                     <InputNumber id="raktarKeszlet" class="form-control" @bind-Value="termek.Raktarkeszlet" />
                     <ValidationMessage For="() => termek.Raktarkeszlet" />
                 </div>
