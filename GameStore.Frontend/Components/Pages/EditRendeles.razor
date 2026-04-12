@@ -49,14 +49,13 @@ else
           <ValidationMessage For="() => rendeles.termek_ID" />
         </div>
 
-        <!-- 
-         <div class="mb-3">
+        <div class="mb-3">
           <label for="darabszam" class="form-label">Darabszam:</label>
-          <InputNumber id="darabszam" class="form-control" @bind-Value="rendeles.daranszam" />
-          <ValidationMessage For="() => vasarlo.darabszam" />
+          <InputNumber id="darabszam" class="form-control" @bind-Value="rendeles.Darabszam" />
+          <ValidationMessage For="() => rendeles.Darabszam" />
         </div>
-       -->
 
+       
         <div class="mb-3">
           <label for="rendeles-datum" class="form-label">Rendelés dátuma:</label>
           <InputDate id="rendeles-datum" @bind-Value="rendeles.Rendeles_datuma" class="form-control" />

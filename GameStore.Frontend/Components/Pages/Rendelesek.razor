@@ -26,6 +26,7 @@ else
       <th>Rendelés ID</th>
       <th>Vásárló Neve</th>
       <th>Termék/ID</th>
+      <th>Darabszám</th>
       <th>Rendelés dátuma</th>
       <th>fizetési mód</th>
       <th>Szállítási mód</th>
@@ -38,6 +39,7 @@ else
           <td>@rendeles.Rendelesek_ID</td>
           <td>@vasarlok.FirstOrDefault(vasarlo => vasarlo.Vasarlo_ID == rendeles.Vasarlo_ID)?.Nev</td>
           <td>@termekek.FirstOrDefault(termek => termek.Jatek_ID == rendeles.termek_ID)?.Cim</td>
+          <td>@rendeles.Darabszam</td>
           <td>@rendeles.Rendeles_datuma</td>
           <td>@rendeles.fizetesi_mod</td>
           <td>@rendeles.szallitasi_mod</td>

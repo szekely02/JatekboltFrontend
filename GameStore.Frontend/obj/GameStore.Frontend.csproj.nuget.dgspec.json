@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj": {}
+    "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj": {}
   },
   "projects": {
-    "D:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj": {
+    "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
+        "projectUniqueName": "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
         "projectName": "GameStore.Frontend",
-        "projectPath": "D:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
+        "projectPath": "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
         "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-        "outputPath": "D:\\JatekboltFrontend\\GameStore.Frontend\\obj\\",
+        "outputPath": "d:\\JatekboltFrontend\\GameStore.Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config"

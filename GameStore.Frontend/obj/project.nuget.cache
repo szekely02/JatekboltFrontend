@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K+NqdIQSz/Y=",
+  "dgSpecHash": "i5M87vBeZGg=",
   "success": true,
-  "projectFilePath": "D:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
+  "projectFilePath": "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.13\\microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
     "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.13\\microsoft.windowsdesktop.app.ref.9.0.13.nupkg.sha512",
