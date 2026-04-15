@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i5M87vBeZGg=",
+  "dgSpecHash": "SFZAd80fZaU=",
   "success": true,
-  "projectFilePath": "d:\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.13\\microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.13\\microsoft.windowsdesktop.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.13\\microsoft.aspnetcore.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.13\\microsoft.netcore.app.host.win-x64.9.0.13.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\szbalazs06\\Downloads\\alkalmazás\\JatekboltFrontend\\GameStore.Frontend\\GameStore.Frontend.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
