@@ -10,6 +10,22 @@
 @inject VasarlokClient VasarlokClient
 
 <PageTitle>@title</PageTitle>
+<style>
+    body {
+    background-image: url('/hatter1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+</style>
 <h3>@title</h3>
 @if (Vasarlo is null)
 {

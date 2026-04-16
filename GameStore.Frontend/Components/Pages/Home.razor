@@ -1,29 +1,94 @@
 ﻿@page "/"
 
 <PageTitle>Főmenü</PageTitle>
+<style>
+    .card {
+        transition: transform 0.2s ease-in-out;
+        text-align: center;
+        
+    }
+    
 
-<div class="d-flex gap-2 py-3">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Termékek</h5>
-            <p class="card-text">Itt találhatod meg a játékokat</p>
-            <a href="/termekek" class="btn btn-primary">Termékek megnyitása</a>
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 8px rgba(29, 2, 2, 0.61);
+        
+    }
+    .card-body {
+        background-color: rgba(0, 0, 0, 0.5); /* Átlátszóbb háttér */
+        color: white; /* Fehér szöveg */
+        text-align: center;
+    }
+    .card-title {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .card-text {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+
+    .d-flex {
+        display: flex;
+        justify-content: center;
+    }
+    body {
+        background-image: url('/hatter1.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        color: yellowgreen;
+        text-align: center;
+    }
+    
+
+    h1,p {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        text-align: center;
+    }
+    text {
+        color: blue;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Minden szöveg színe az oldalon */
+    .home-text, .home-text * {
+        color: yellowgreen !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+</style>
+
+<div class="home-text">
+    <center>
+    <h1>Üdvözöllek a Játékboltban!</h1>
+    <p>Válaszd ki mit szeretnél megnézni</p>
+    <div class="d-flex gap-2 py-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Termékek</h5>
+                <p class="card-text">Itt találhatod meg a játékokat</p>
+                <a href="/termekek" class="btn btn-primary">Termékek megnyitása</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Vásárlók</h5>
+                <p class="card-text">Itt meg tudod nézni a vásárlókat</p>
+                <a href="/vasarlok" class="btn btn-primary">Vásárlók megnyitása</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Rendelések</h5>
+                <p class="card-text">Itt meg tudod nézni ki mit rendelt</p>
+                <a href="/rendelesek" class="btn btn-primary">Rendelések megnyitása</a>
+            </div>
         </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Vásárlók</h5>
-            <p class="card-text">Itt meg tudod nézni a vásárlókat</p>
-            <a href="/vasarlok" class="btn btn-primary">Vásárlók megnyitása</a>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Rendelések</h5>
-            <p class="card-text">Itt meg tudod nézni ki mit rendelt</p>
-            <a href="/rendelesek" class="btn btn-primary">Rendelések megnyitása</a>
-        </div>
-    </div>
+    </center>
 </div>

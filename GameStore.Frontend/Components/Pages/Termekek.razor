@@ -8,6 +8,100 @@
 @attribute [StreamRendering]
 
 <PageTitle>Játék katalógus</PageTitle>
+<style>
+ 
+
+
+  body {
+    background-image: url('/hatter1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+  }
+
+  text {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  .table 
+{
+    background-color: rgba(0, 0, 0, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+    border: 2px solid #fff !important; 
+    border-collapse: collapse; 
+    
+}
+
+
+/* Fejléc (thead) áttetsző sötét háttér */
+.table-dark td 
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+
+}
+
+.table-dark th
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+    f
+
+}
+
+.table-row-custom td
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+  
+}
+
+
+/* Fejléc cellák */
+thead th 
+{
+    border: 2px solid #fff; 
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Átlátszóbb háttér */
+    padding: 10px; 
+    text-align: left;
+    
+}
+
+/* Tartalom cellák */
+tbody td 
+{
+    border: 2px solid #fff; 
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Átlátszóbb háttér */
+    padding: 10px;
+    text-align: left;
+    
+}
+
+
+
+.table-bordered 
+{
+    border-color: white !important;
+    
+}
+
+.table-bordered th,
+.table-bordered td 
+{
+    border: 2px solid white !important;
+    
+}
+
+
+
+</style>
 
 <div class="mt-2">
   <a class="btn btn-primary" role="button" href="/editgame">Új játék</a>
@@ -19,7 +113,7 @@
 }
 else
 {
-  <table class="table table-striped table-bordered table-hover mt-3">
+  <table class="table table-striped table-bordered table-hover mt-3 ">
     <thead class="table-dark">
       <th>Id</th>
       <th>Cím</th>
@@ -49,7 +143,7 @@ else
           <td class="text-end">@termek.ar.ToString("C2")</td>
           <td class="text-end">@termek.akcios_ar.ToString("C2")</td>
           <td class="text-end">@termek.Raktarkeszlet</td>
-          
+
           <td>
             <div class="d-flex flex-nowrap">
               <a class="btn btn-primary me-2" role="button" href="@GameUrl(termek.Jatek_ID)">
@@ -79,8 +173,8 @@ else
   }
 
   private static string GameUrl(int id) => $"/editgame/{id}";
-  
-  private static string RendelesUrl(int id) => $"/editrendeles?termekId={id}";  
+
+  private static string RendelesUrl(int id) => $"/editrendeles?termekId={id}";
 
   private string GetDeleteModalId(TermekekSummary termek)
   {

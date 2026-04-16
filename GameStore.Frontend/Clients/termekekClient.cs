@@ -4,7 +4,6 @@ namespace GameStore.Frontend.Clients;
 
 public class TermekekClient(HttpClient httpClient)
 {
-
     public async Task<TermekekSummary[]> GetTermekekAsync()
     => await httpClient.GetFromJsonAsync<TermekekSummary[]>("termekek") ?? [];
 

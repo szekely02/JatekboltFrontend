@@ -16,7 +16,9 @@ C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\o
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\scopedcss\bundle\GameStore.Frontend.styles.css
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\scopedcss\projectbundle\GameStore.Frontend.bundle.scp.css
-C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\hpytjbslhg-4kywy7iv6g.gz
+C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\hpytjbslhg-92yciu6erc.gz
+C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\qc129nah4a-uugyascrqn.gz
+C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\602xsdby15-uugyascrqn.gz
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\staticwebassets.development.json
@@ -26,5 +28,3 @@ C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\o
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\GameStore.Frontend.pdb
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\GameStore.Frontend.genruntimeconfig.cache
 C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\ref\GameStore.Frontend.dll
-C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\qc129nah4a-uugyascrqn.gz
-C:\Users\szbalazs06\Downloads\alkalmazás\JatekboltFrontend\GameStore.Frontend\obj\Debug\net9.0\compressed\602xsdby15-uugyascrqn.gz

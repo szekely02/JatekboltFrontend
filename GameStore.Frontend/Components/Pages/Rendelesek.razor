@@ -10,6 +10,98 @@
 @attribute [StreamRendering]
 
 <PageTitle>Rendelesek</PageTitle>
+<style>
+  
+
+  body {
+    background-image: url('/hatter1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+  }
+
+  text {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  .table 
+{
+    background-color: rgba(0, 0, 0, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+    border: 2px solid #fff !important; 
+    border-collapse: collapse; 
+    
+}
+
+
+/* Fejléc (thead) áttetsző sötét háttér */
+.table-dark td 
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+
+}
+
+.table-dark th
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+    f
+
+}
+
+.table-row-custom td
+{
+    background-color: rgba(156, 139, 139, 0.2) !important; 
+    color: white !important;
+    border-collapse: collapse !important;
+  
+}
+
+
+/* Fejléc cellák */
+thead th 
+{
+    border: 2px solid #fff; 
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Átlátszóbb háttér */
+    padding: 10px; 
+    text-align: left;
+    
+}
+
+/* Tartalom cellák */
+tbody td 
+{
+    border: 2px solid #fff; 
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Átlátszóbb háttér */
+    padding: 10px;
+    text-align: left;
+    
+}
+
+
+
+.table-bordered 
+{
+    border-color: white !important;
+    
+}
+
+.table-bordered th,
+.table-bordered td 
+{
+    border: 2px solid white !important;
+    
+}
+
+
+  </style>
 
 <div class="mt-2">
   <a class="btn btn-primary" role="button" href="/editrendeles">Új Rendelés</a>
@@ -48,7 +140,7 @@ else
               <a class="btn btn-primary me-2" role="button" href="@RendelesUrl(rendeles.Rendelesek_ID)">
                 <i class="bi bi-pencil"></i>
               </a>
-              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@GetDeleteModalId(rendeles)"><i
+              <button  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@GetDeleteModalId(rendeles)"><i
                 class="bi bi-x-lg"></i></button>
 
         
