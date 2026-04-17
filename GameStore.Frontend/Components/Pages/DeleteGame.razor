@@ -11,12 +11,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="ConfirmAsync">Törlés</button>
+        <button type="button" class="btn btn-secondary megse" data-bs-dismiss="modal">Mégsem</button>
+        <button type="button" class="btn btn-primary torles" data-bs-dismiss="modal" @onclick="ConfirmAsync">Törlés</button>
       </div>
     </div>
   </div>
 </div>
+<style>
+  .torles {
+       color: white;
+       background-color: red;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+   }
+   .megse {
+       color: white;
+       background-color: blue;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+   }
+    .modal-content {
+
+        color: red;
+        background-image: url('/hatter.jpg');
+        text-shadow: 2px 2px 4px rgba(248, 5, 5, 0.7);
+        text-align: center;
+    }
+</style>
 
 @code {
   [Parameter]
@@ -27,11 +46,10 @@
   protected override void OnParametersSet()
   {
     title = $"Biztos törli a  \"{Termek?.Cim}\" játékot?";
-       
   }
   public static string GetModalId(TermekekSummary? termek)
   {
-    ArgumentNullException.ThrowIfNull(termek);
+    ArgumentNullException.ThrowIfNull(termek); 
     return $"deleteModal-{termek.Jatek_ID}";
   }
 

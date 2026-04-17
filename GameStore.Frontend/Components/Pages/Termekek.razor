@@ -13,7 +13,7 @@
 
 
   body {
-    background-image: url('/hatter1.jpg');
+    background-image: url('/veglegeshatter.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -23,6 +23,7 @@
   text {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
   }
   .table 
 {
@@ -31,6 +32,7 @@
     border-collapse: collapse !important;
     border: 2px solid #fff !important; 
     border-collapse: collapse; 
+    text-align: center;
     
 }
 
@@ -98,8 +100,16 @@ tbody td
     border: 2px solid white !important;
     
 }
-
-
+.id {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+.szia {
+    font-size: 1.9em;
+    text-shadow: 2px 2px 4px rgba(0, 162, 255, 0.47);
+    background-color: rgba(0, 4, 255, 0.5);
+}
 
 </style>
 
@@ -115,7 +125,7 @@ else
 {
   <table class="table table-striped table-bordered table-hover mt-3 ">
     <thead class="table-dark">
-      <th>Id</th>
+      <th class="id ">Id</th>
       <th>Cím</th>
       <th>Platform</th>
       <th>Kiadó</th>
@@ -132,7 +142,7 @@ else
       @foreach (var termek in termekek)
       {
         <tr>
-          <td>@termek.Jatek_ID</td>
+          <td class="id szia">@termek.Jatek_ID</td>
           <td>@termek.Cim</td>
           <td>@termek.Platform</td>
           <td>@termek.Kiado</td>
