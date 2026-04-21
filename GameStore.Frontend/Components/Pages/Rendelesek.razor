@@ -50,7 +50,7 @@
     background-color: rgba(156, 139, 139, 0.2) !important; 
     color: white !important;
     border-collapse: collapse !important;
-    f
+    
 
 }
 
@@ -99,6 +99,18 @@ tbody td
     border: 2px solid white !important;
     
 }
+.id {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+.szia {
+    font-size: 1.9em;
+    text-shadow: 2px 2px 4px rgba(0, 162, 255, 0.47);
+    background-color: rgba(0, 4, 255, 0.5);
+    text-align: center;
+}
+
 
 
   </style>
@@ -113,7 +125,7 @@ tbody td
 }
 else
 {
-  <table class="table table-striped table-bordered table-hover mt-3">
+  <table class=" table table-striped table-bordered table-hover mt-3">
     <thead class="table-dark">
       <th>Rendelés ID</th>
       <th>Vásárló Neve</th>
@@ -128,7 +140,7 @@ else
       @foreach (RendelesekSummary rendeles in rendelesek)
       {
         <tr>
-          <td>@rendeles.Rendelesek_ID</td>
+          <td class="szia">@rendeles.Rendelesek_ID</td>
           <td>@vasarlok.FirstOrDefault(vasarlo => vasarlo.Vasarlo_ID == rendeles.Vasarlo_ID)?.Nev</td>
           <td>@termekek.FirstOrDefault(termek => termek.Jatek_ID == rendeles.termek_ID)?.Cim</td>
           <td>@rendeles.Darabszam</td>

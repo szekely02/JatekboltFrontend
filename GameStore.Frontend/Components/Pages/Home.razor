@@ -8,41 +8,42 @@
         
     }
     
-
     .card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 4px 8px rgba(29, 2, 2, 0.61);
+        box-shadow: 0 4px 8px rgba(90, 10, 90, 0.61);
         
     }
+
     .card-body {
-        background-color: rgba(0, 0, 0, 0.5); /* Átlátszóbb háttér */
-        color: white; /* Fehér szöveg */
+        background-color: rgba(0, 0, 0, 0.5); 
+        color: white; 
         text-align: center;
     }
+
     .card-title {
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
+
     .card-text {
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
     
-
     .d-flex {
         display: flex;
         justify-content: center;
     }
+
     body {
         background-image: url('/veglegeshatter.jpg');
-        background-size: cover;
+        background-size: auto;
         background-position: center;
         min-height: 100vh;
         background-repeat: no-repeat;
         color: yellowgreen;
         text-align: center;
     }
-    
 
     h1,p {
         color: white;
@@ -63,14 +64,23 @@
         color: white !important;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
+    .center-content {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        align-items: center;
+        text-align: center;
+        padding-top: 20vh; 
+    }
     
 </style>
-
+<div class="center-content">
 <div class="home-text-white">
 <div class="home-text">
-    <center>
+    
     <h1>Üdvözöllek a Játékboltban!</h1>
-    <p> Válaszd ki mit szeretnél szerkeszteni</p>
+    <p>Válaszd ki mit szeretnél szerkeszteni</p>
     <div class="d-flex gap-2 py-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -79,7 +89,6 @@
                 <a href="/termekek" class="btn btn-primary">Termékek megnyitása</a>
             </div>
         </div>
-
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Vásárlók</h5>
@@ -87,7 +96,6 @@
                 <a href="/vasarlok" class="btn btn-primary">Vásárlók megnyitása</a>
             </div>
         </div>
-
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Rendelések</h5>
@@ -96,6 +104,7 @@
             </div>
         </div>
     </div>
-    </center>
 </div>
 </div>
+</div>
+
