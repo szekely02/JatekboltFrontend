@@ -2,7 +2,6 @@
 @inject NavigationManager NavigationManager
 @rendermode InteractiveServer
 
-
 <div class="modal fade" id="@GetModalId(Termek)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -36,6 +35,23 @@
         text-align: center;
     }
 </style>
+
+
+<div class="modal fade" id="@GetModalId(Termek)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">@title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary megse" data-bs-dismiss="modal">Mégsem</button>
+        <button type="button" class="btn btn-primary torles" data-bs-dismiss="modal" @onclick="ConfirmAsync">Törlés</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 @code {
   [Parameter]

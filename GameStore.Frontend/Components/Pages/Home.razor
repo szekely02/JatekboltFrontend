@@ -68,10 +68,10 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; 
+        justify-content: flex-start; /* Tartalom kicsit fentebb, nem teljesen középen */
         align-items: center;
         text-align: center;
-        padding-top: 20vh; 
+        padding-top: 20vh; /* Igazítás a tetejétől, állítható igény szerint */
     }
     
 </style>
@@ -80,7 +80,7 @@
 <div class="home-text">
     
     <h1>Üdvözöllek a Játékboltban!</h1>
-    <p>Válaszd ki mit szeretnél szerkeszteni</p>
+    <p> Válaszd ki mit szeretnél szerkeszteni</p>
     <div class="d-flex gap-2 py-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -89,6 +89,7 @@
                 <a href="/termekek" class="btn btn-primary">Termékek megnyitása</a>
             </div>
         </div>
+
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Vásárlók</h5>
@@ -96,6 +97,7 @@
                 <a href="/vasarlok" class="btn btn-primary">Vásárlók megnyitása</a>
             </div>
         </div>
+
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Rendelések</h5>
